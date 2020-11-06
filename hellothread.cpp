@@ -29,8 +29,8 @@ double prostokatuj(double start, int i, double rozmiar)
 void* worker(void* arg)
 {
    struct t_data *args = (struct t_data*) arg;
-   args->czesc = prostokatuj(args->start,args->licznik,args->rozmiar);
-   printf("id=%lu result=%f \n" , pthread_self(),args->czesc);
+   args->czesc = prostokatuj(args->start, args->licznik, args->rozmiar);
+   printf("id=%lu result=%f \n", pthread_self(), args->czesc);
 }
 
 int main(int argc, char *argv[])
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
          pthread_join(tid[i], NULL);
          wynik += args[i].czesc;
    }
-   printf("id=%lu result=%f \n" , pthread_self(),wynik);
+   printf("id=%lu result=%f \n", pthread_self(), wynik);
    pthread_exit(NULL);
 }
 
